@@ -79,13 +79,16 @@
 
 
 
+<meta name="description" content="获取所有库磁盘使用空间大小12345select TABLE_SCHEMA, concat(truncate(sum(data_length)/1024/1024,2),&apos; MB&apos;) as data_size,concat(truncate(sum(index_length)/1024/1024,2),&apos;MB&apos;) as index_sizefrom information_schema.table">
 <meta property="og:type" content="article">
 <meta property="og:title" content="My New Post">
 <meta property="og:url" content="http://yoursite.com/2018/01/16/My-New-Post/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:updated_time" content="2018-01-16T14:11:41.000Z">
+<meta property="og:description" content="获取所有库磁盘使用空间大小12345select TABLE_SCHEMA, concat(truncate(sum(data_length)/1024/1024,2),&apos; MB&apos;) as data_size,concat(truncate(sum(index_length)/1024/1024,2),&apos;MB&apos;) as index_sizefrom information_schema.table">
+<meta property="og:updated_time" content="2018-01-16T14:15:40.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="My New Post">
+<meta name="twitter:description" content="获取所有库磁盘使用空间大小12345select TABLE_SCHEMA, concat(truncate(sum(data_length)/1024/1024,2),&apos; MB&apos;) as data_size,concat(truncate(sum(index_length)/1024/1024,2),&apos;MB&apos;) as index_sizefrom information_schema.table">
 
 
 
@@ -295,7 +298,8 @@
       
 
       
-        
+        <h1 id="获取所有库磁盘使用空间大小"><a href="#获取所有库磁盘使用空间大小" class="headerlink" title="获取所有库磁盘使用空间大小"></a>获取所有库磁盘使用空间大小</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> TABLE_SCHEMA, <span class="keyword">concat</span>(<span class="keyword">truncate</span>(<span class="keyword">sum</span>(data_length)/<span class="number">1024</span>/<span class="number">1024</span>,<span class="number">2</span>),<span class="string">' MB'</span>) <span class="keyword">as</span> data_size,</span><br><span class="line"><span class="keyword">concat</span>(<span class="keyword">truncate</span>(<span class="keyword">sum</span>(index_length)/<span class="number">1024</span>/<span class="number">1024</span>,<span class="number">2</span>),<span class="string">'MB'</span>) <span class="keyword">as</span> index_size</span><br><span class="line"><span class="keyword">from</span> information_schema.tables</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> TABLE_SCHEMA</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> data_length <span class="keyword">desc</span>;</span><br></pre></td></tr></table></figure>
+<h1 id="获取单个库磁盘使用空间大小"><a href="#获取单个库磁盘使用空间大小" class="headerlink" title="获取单个库磁盘使用空间大小"></a>获取单个库磁盘使用空间大小</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> TABLE_NAME, <span class="keyword">concat</span>(<span class="keyword">truncate</span>(data_length/<span class="number">1024</span>/<span class="number">1024</span>,<span class="number">2</span>),<span class="string">' MB'</span>) <span class="keyword">as</span> data_size,</span><br><span class="line"><span class="keyword">concat</span>(<span class="keyword">truncate</span>(index_length/<span class="number">1024</span>/<span class="number">1024</span>,<span class="number">2</span>),<span class="string">' MB'</span>) <span class="keyword">as</span> index_size</span><br><span class="line"><span class="keyword">from</span> information_schema.tables <span class="keyword">where</span> TABLE_SCHEMA = <span class="string">'TestDB'</span></span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> TABLE_NAME</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> data_length <span class="keyword">desc</span>;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -379,8 +383,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Übersicht
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -422,6 +435,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#获取所有库磁盘使用空间大小"><span class="nav-number">1.</span> <span class="nav-text">获取所有库磁盘使用空间大小</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#获取单个库磁盘使用空间大小"><span class="nav-number">2.</span> <span class="nav-text">获取单个库磁盘使用空间大小</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
