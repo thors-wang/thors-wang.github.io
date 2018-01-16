@@ -3,22 +3,22 @@
 <head>
   <meta charset="utf-8">
   
-  <title>SQL获取磁盘空间大小 | Thors Wang</title>
+  <title>hexo 基本操作 | Thors Wang</title>
 
   <!-- keywords -->
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="获取所有库磁盘使用空间大小12345select TABLE_SCHEMA, concat(truncate(sum(data_length)/1024/1024,2),&apos; MB&apos;) as data_size,concat(truncate(sum(index_length)/1024/1024,2),&apos;MB&apos;) as index_sizefrom information_schema.table">
+  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SQL获取磁盘空间大小">
-<meta property="og:url" content="http://yoursite.com/2018/01/16/SQL获取磁盘空间大小/index.html">
+<meta property="og:title" content="hexo 基本操作">
+<meta property="og:url" content="http://yoursite.com/2018/01/16/hexo/index.html">
 <meta property="og:site_name" content="Thors Wang">
-<meta property="og:description" content="获取所有库磁盘使用空间大小12345select TABLE_SCHEMA, concat(truncate(sum(data_length)/1024/1024,2),&apos; MB&apos;) as data_size,concat(truncate(sum(index_length)/1024/1024,2),&apos;MB&apos;) as index_sizefrom information_schema.table">
-<meta property="og:updated_time" content="2018-01-16T15:00:28.000Z">
+<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:updated_time" content="2018-01-16T15:13:48.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SQL获取磁盘空间大小">
-<meta name="twitter:description" content="获取所有库磁盘使用空间大小12345select TABLE_SCHEMA, concat(truncate(sum(data_length)/1024/1024,2),&apos; MB&apos;) as data_size,concat(truncate(sum(index_length)/1024/1024,2),&apos;MB&apos;) as index_sizefrom information_schema.table">
+<meta name="twitter:title" content="hexo 基本操作">
+<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
   
     <link rel="alternative" href="/atom.xml" title="Thors Wang" type="application/atom+xml">
   
@@ -164,11 +164,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-SQL获取磁盘空间大小" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-hexo" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/01/16/SQL获取磁盘空间大小/" class="article-date">
-  	<time datetime="2018-01-16T14:11:41.000Z" itemprop="datePublished">2018-01-16</time>
+      <a href="/2018/01/16/hexo/" class="article-date">
+  	<time datetime="2018-01-16T13:36:08.000Z" itemprop="datePublished">2018-01-16</time>
 </a>
     </div>
   
@@ -181,7 +181,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      SQL获取磁盘空间大小
+      hexo 基本操作
       
     </h1>
   
@@ -199,8 +199,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="获取所有库磁盘使用空间大小"><a href="#获取所有库磁盘使用空间大小" class="headerlink" title="获取所有库磁盘使用空间大小"></a>获取所有库磁盘使用空间大小</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> TABLE_SCHEMA, <span class="keyword">concat</span>(<span class="keyword">truncate</span>(<span class="keyword">sum</span>(data_length)/<span class="number">1024</span>/<span class="number">1024</span>,<span class="number">2</span>),<span class="string">' MB'</span>) <span class="keyword">as</span> data_size,</span><br><span class="line"><span class="keyword">concat</span>(<span class="keyword">truncate</span>(<span class="keyword">sum</span>(index_length)/<span class="number">1024</span>/<span class="number">1024</span>,<span class="number">2</span>),<span class="string">'MB'</span>) <span class="keyword">as</span> index_size</span><br><span class="line"><span class="keyword">from</span> information_schema.tables</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> TABLE_SCHEMA</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> data_length <span class="keyword">desc</span>;</span><br></pre></td></tr></table></figure>
-<h1 id="获取单个库磁盘使用空间大小"><a href="#获取单个库磁盘使用空间大小" class="headerlink" title="获取单个库磁盘使用空间大小"></a>获取单个库磁盘使用空间大小</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> TABLE_NAME, <span class="keyword">concat</span>(<span class="keyword">truncate</span>(data_length/<span class="number">1024</span>/<span class="number">1024</span>,<span class="number">2</span>),<span class="string">' MB'</span>) <span class="keyword">as</span> data_size,</span><br><span class="line"><span class="keyword">concat</span>(<span class="keyword">truncate</span>(index_length/<span class="number">1024</span>/<span class="number">1024</span>,<span class="number">2</span>),<span class="string">' MB'</span>) <span class="keyword">as</span> index_size</span><br><span class="line"><span class="keyword">from</span> information_schema.tables <span class="keyword">where</span> TABLE_SCHEMA = <span class="string">'TestDB'</span></span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> TABLE_NAME</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> data_length <span class="keyword">desc</span>;</span><br></pre></td></tr></table></figure>
+        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+
       
     </div>
     
@@ -209,11 +217,15 @@
     
 <nav id="article-nav">
   
-  
-    <a href="/2018/01/16/hexo/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">hexo 基本操作</div>
-      <strong class="article-nav-caption">&gt;</strong>
+    <a href="/2018/01/16/SQL获取磁盘空间大小/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          SQL获取磁盘空间大小
+        
+      </div>
     </a>
+  
   
 </nav>
 
@@ -221,7 +233,7 @@
 </article>
 
 
-<div class="ds-share share" data-thread-key="SQL获取磁盘空间大小" data-title="SQL获取磁盘空间大小" data-url="http://yoursite.com/2018/01/16/SQL获取磁盘空间大小/"  data-images="http://7xkj1z.com1.z0.glb.clouddn.com/head.jpg" data-content="SQL获取磁盘空间大小">
+<div class="ds-share share" data-thread-key="hexo" data-title="hexo 基本操作" data-url="http://yoursite.com/2018/01/16/hexo/"  data-images="http://7xkj1z.com1.z0.glb.clouddn.com/head.jpg" data-content="hexo 基本操作">
     <div class="ds-share-inline">
       <ul  class="ds-share-icons-16">
       	<li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
