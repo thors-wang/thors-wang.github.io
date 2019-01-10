@@ -1846,6 +1846,9 @@ pre .javascript .function {
   flex-wrap: wrap;
   justify-content: center;
 }
+.links-of-author-item {
+  text-align: center;
+}
 .links-of-author a {
   display: inline-block;
   vertical-align: middle;
@@ -1862,7 +1865,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #b624e5;
+  background: #c6ffc2;
 }
 .links-of-blogroll {
   font-size: 13px;
